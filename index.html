@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anisha Chandrasekar - Digital Transformation & Programme Management</title>
+<meta name="description" content="Digital transformation and programme design specialist with 3+ years' experience across startups, government, non-profits, financial services and social impact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14213D; --ink-soft:#233350; --terracotta:#C9703D; --terracotta-dark:#A85A2E;
+    --cream:#FAF6F0; --cream-dim:#F1EAE0; --text:#232323; --muted:#6a6f78;
+    --line:rgba(20,33,61,0.12); --max:1120px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;color:var(--text);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--ink);letter-spacing:-0.01em;line-height:1.2;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .container{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  .eyebrow{display:inline-block;font-size:0.78rem;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--terracotta);margin-bottom:16px;}
+  section{padding:110px 0;}
+  @media(max-width:768px){ section{padding:70px 0;} }
+
+  header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:24px 0;transition:all .3s ease;}
+  header .container{display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:'Inter',sans-serif;font-size:1.05rem;font-weight:600;color:var(--ink);transition:color .3s ease;white-space:nowrap;}
+  .logo span{color:var(--terracotta);}
+  nav ul{list-style:none;display:flex;gap:34px;}
+  nav a{font-size:0.9rem;font-weight:500;color:var(--ink-soft);border-bottom:2px solid transparent;padding-bottom:3px;transition:color .2s ease;}
+  nav a:hover,nav a.active{color:var(--terracotta);border-color:var(--terracotta);}
+  header.scrolled{background:rgba(250,246,240,0.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding:14px 0;}
+  header.scrolled .logo{color:var(--ink);}
+  header.scrolled nav a{color:var(--ink-soft);}
+  .menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:1100;}
+  .menu-toggle span{width:24px;height:2px;background:var(--ink);transition:all .3s ease;}
+  header.scrolled .menu-toggle span{background:var(--ink);}
+  @media(max-width:820px){
+    nav ul{position:fixed;top:0;right:0;height:100vh;width:min(78vw,300px);background:var(--ink);
+      flex-direction:column;justify-content:center;align-items:flex-start;padding:40px;gap:26px;
+      transform:translateX(100%);transition:transform .35s ease;}
+    nav ul.open{transform:translateX(0);}
+    nav ul li a{color:#fff;font-size:1.1rem;}
+    .menu-toggle{display:flex;}
+  }
+
+  .btn{padding:14px 28px;border-radius:999px;font-weight:600;font-size:0.92rem;display:inline-block;transition:all .2s ease;}
+  .btn-primary{background:var(--terracotta);color:#fff;}
+  .btn-primary:hover{background:var(--terracotta-dark);transform:translateY(-2px);}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.4);color:#fff;}
+  .btn-ghost:hover{border-color:#fff;transform:translateY(-2px);}
+  .btn-ghost-dark{border:1px solid var(--ink);color:var(--ink);}
+  .btn-ghost-dark:hover{background:var(--ink);color:#fff;}
+
+  /* HERO */
+  .hero{
+    min-height:90vh;display:flex;align-items:center;position:relative;padding:170px 0 90px;
+    background:var(--cream-dim);
+  }
+  .hero .container{position:relative;z-index:2;display:flex;justify-content:center;}
+  .hero-card{background:var(--cream);border-radius:20px;padding:56px 64px;box-shadow:0 30px 70px -35px rgba(20,33,61,0.28);max-width:680px;width:100%;}
+  .hero-inner{max-width:100%;}
+  .hero .role{font-size:1rem;color:var(--terracotta);font-weight:600;margin-bottom:16px;letter-spacing:0.02em;}
+  .hero h1{font-size:clamp(2.2rem,4.5vw,3.4rem);color:var(--ink);margin-bottom:22px;}
+  .hero p{font-size:1.12rem;color:var(--text);max-width:560px;margin-bottom:34px;font-weight:400;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  @media(max-width:600px){ .hero-card{padding:40px 28px;} }
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:60px;align-items:start;}
+  .about-img{border-radius:8px;overflow:hidden;box-shadow:0 25px 50px -20px rgba(20,33,61,0.3);position:sticky;top:110px;}
+  .about-text p{font-size:1.06rem;margin-bottom:18px;max-width:600px;}
+  .about-text p:last-of-type{margin-bottom:0;}
+  @media(max-width:860px){
+    .about-grid{grid-template-columns:1fr;gap:36px;}
+    .about-img{position:static;max-width:280px;margin:0 auto;}
+  }
+
+  /* SKILLS */
+  .skills{background:var(--cream);color:var(--text);padding-bottom:60px;}
+  #highlights{padding-top:60px;}
+  .skills .eyebrow{color:var(--terracotta);}
+  .skills-head{margin-bottom:50px;}
+  .skills-head .eyebrow{margin-left:-32px;}
+  .skills-panel-wrap{display:grid;grid-template-columns:340px 1fr;margin-bottom:60px;border-top:1px solid var(--line);}
+  .skills-list{display:flex;flex-direction:column;border-right:1px solid var(--line);}
+  .skills-list-item{display:flex;align-items:baseline;gap:16px;width:100%;background:none;border:none;border-bottom:1px solid var(--line);cursor:pointer;text-align:left;padding:22px 26px;transition:background .2s ease;}
+  .skills-list-item:hover{background:rgba(20,33,61,0.04);}
+  .skills-list-item.active{background:rgba(201,112,61,0.1);}
+  .skills-list-num{font-size:0.8rem;color:var(--muted);font-variant-numeric:tabular-nums;transition:color .2s ease;}
+  .skills-list-item.active .skills-list-num{color:var(--terracotta);}
+  .skills-list-label{font-size:1.02rem;font-weight:500;color:var(--ink-soft);transition:color .2s ease;}
+  .skills-list-item.active .skills-list-label{color:var(--ink);}
+  .skills-detail{position:relative;padding:12px 0 12px 52px;display:flex;align-items:center;}
+  .skills-detail-panel{display:none;}
+  .skills-detail-panel.active{display:block;animation:skillFade .4s ease;}
+  .skills-detail-panel h3{color:var(--ink);font-size:1.35rem;font-weight:500;margin-bottom:18px;}
+  .skills-detail-panel p{color:var(--muted);font-size:1.02rem;line-height:1.7;max-width:540px;}
+  @keyframes skillFade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+  .tools-block{margin-bottom:36px;}
+  .tools-block:last-child{margin-bottom:0;}
+  .tools-block h3{color:var(--ink);font-size:1rem;font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.06em;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:10px;}
+  .tag{background:rgba(20,33,61,0.05);border:1px solid var(--line);padding:8px 16px;border-radius:999px;font-size:0.85rem;color:var(--ink-soft);}
+  .course-list{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .course-item{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 14px 34px -24px rgba(20,33,61,0.25);transition:transform .25s ease, box-shadow .25s ease;}
+  .course-item:hover{transform:translateY(-4px);box-shadow:0 20px 44px -22px rgba(20,33,61,0.3);}
+  .course-icon{color:var(--terracotta);}
+  .course-title{font-size:1.05rem;font-weight:500;color:var(--ink);line-height:1.4;}
+  .course-provider{font-size:0.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;}
+  .course-link{margin-top:auto;padding-top:8px;background:none;border:none;color:var(--terracotta);font-weight:600;font-size:0.85rem;text-decoration:none;display:inline-flex;align-items:center;gap:5px;}
+  .course-link:hover{text-decoration:underline;}
+  @media(max-width:768px){ .course-list{grid-template-columns:1fr;} }
+  @media(max-width:768px){
+    .skills-panel-wrap{grid-template-columns:1fr;border-top:none;}
+    .skills-list{flex-direction:row;flex-wrap:wrap;border-right:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+    .skills-list-item{width:auto;border-bottom:none;padding:12px 16px;}
+    .skills-detail{padding:24px 0 0;}
+  }
+
+  /* PROJECTS / HIGHLIGHTS */
+  .highlights-head{margin-bottom:56px;}
+  .highlights-head .eyebrow{margin-left:-32px;}
+  .highlights-head p{color:var(--muted);font-size:1.02rem;}
+  .highlight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:44px 40px;}
+  .highlight-card{}
+  .highlight-thumb{width:100%;height:200px;border-radius:6px;overflow:hidden;margin-bottom:22px;position:relative;}
+  .highlight-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .highlight-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg, rgba(20,33,61,0.6) 0%, rgba(20,33,61,0.32) 100%);pointer-events:none;}
+  .highlight-card:hover .highlight-thumb img{transform:scale(1.06);}
+  .highlight-body .tag-label{font-size:0.76rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--terracotta);margin-bottom:8px;display:block;}
+  .highlight-body h3{font-size:1.2rem;margin-bottom:10px;font-weight:500;}
+  .highlight-toggle{background:none;border:none;cursor:pointer;color:var(--terracotta);font-weight:600;font-size:0.86rem;padding:0;display:inline-flex;align-items:center;gap:6px;}
+  .highlight-toggle .highlight-icon{font-size:1.1rem;line-height:1;transition:transform .3s ease;}
+  .highlight-card.open .highlight-toggle .highlight-icon{transform:rotate(45deg);}
+  .highlight-panel{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .highlight-panel p{padding-top:14px;font-size:0.98rem;color:var(--text);}
+  .highlight-panel p + p{padding-top:0;margin-top:12px;}
+  .highlight-panel ul{padding-top:14px;margin:0;padding-left:20px;}
+  .highlight-panel p + ul{padding-top:0;margin-top:12px;}
+  .highlight-panel li{font-size:0.98rem;color:var(--text);line-height:1.6;margin-bottom:8px;}
+  .highlight-panel li:last-child{margin-bottom:0;}
+  .highlight-body a.inline-link{color:var(--terracotta);text-decoration:underline;font-weight:500;}
+  @media(max-width:700px){
+    .highlight-grid{grid-template-columns:1fr;gap:36px;}
+    .highlight-thumb{height:200px;}
+  }
+
+  /* CONTACT */
+  .contact{background:var(--ink);color:#fff;text-align:center;}
+  .contact .eyebrow{color:var(--terracotta);}
+  .contact h2{color:#fff;font-size:clamp(2rem,4vw,2.8rem);max-width:680px;margin:0 auto 20px;}
+  .contact p.intro{color:rgba(255,255,255,0.75);max-width:520px;margin:0 auto 38px;font-size:1.06rem;}
+  .contact-ctas{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:48px;}
+  .contact-details{max-width:560px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.14);padding-top:26px;}
+  .detail-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:0.94rem;gap:24px;}
+  .detail-row span:first-child{color:rgba(255,255,255,0.55);flex-shrink:0;}
+  .detail-row span:last-child{color:#fff;font-weight:500;text-align:right;}
+  .detail-row.wide{flex-direction:column;align-items:flex-start;gap:8px;}
+  .detail-row.wide span:last-child{text-align:left;font-weight:400;color:rgba(255,255,255,0.82);line-height:1.65;}
+
+  footer{background:var(--ink);padding:28px 0;text-align:center;border-top:1px solid rgba(255,255,255,0.1);}
+  footer p{color:rgba(255,255,255,0.45);font-size:0.85rem;}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="container">
+    <a href="#home" class="logo">Anisha Chandrasekar</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <nav><ul id="navLinks">
+      <li><a href="#about" data-nav>About</a></li>
+      <li><a href="#skills" data-nav>Skills</a></li>
+      <li><a href="#highlights" data-nav>Projects &amp; Highlights</a></li>
+      <li><a href="#contact" data-nav>Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-card reveal">
+      <div class="hero-inner">
+        <h1>Hi, I'm Anisha.</h1>
+        <p>I'm a digital transformation and programme design specialist with 3+ years' experience improving how organisations operate, across SaaS, government and financial services.</p>
+        <div class="hero-ctas">
+          <a href="#about" class="btn btn-primary">About me →</a>
+          <a href="#contact" class="btn btn-ghost-dark">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-img reveal">
+      <img src="anisha-portrait.jpg" alt="Anisha" loading="lazy">
+    </div>
+    <div class="about-text reveal">
+      <span class="eyebrow">About Me</span>
+      <p>I hold a BSc (Hons) in Governance, Economics and Development from Leiden University College, and a MSc (Merit) in International Social and Public Policy from the London School of Economics. Since then I've worked across technology startups, local government and sustainable finance, designing and delivering programmes that turn complicated systems- whether a new technology platform, a council service or a financial product- into something people can understand and meaningfully engage with.</p>
+      <p>In each of these roles, I've built the training, documentation and evaluation that move newly launched initiatives into widespread adoption. I've onboarded thousands of users onto new platforms, run community and digital inclusion programmes and translated complex policy and financial information for non-specialist audiences. I'm strongest at programme design and evaluation, digital transformation and building strong client relationships.</p>
+      <p>Having lived and worked across the Netherlands, the UK, India and Singapore, I bring an international perspective to how I approach people and problems.</p>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <div class="container">
+    <div class="skills-head reveal">
+      <span class="eyebrow">Skills &amp; Strengths</span>
+    </div>
+
+    <div class="skills-panel-wrap reveal">
+      <div class="skills-list" role="tablist">
+        <button class="skills-list-item active" data-skill="0" role="tab" aria-selected="true">
+          <span class="skills-list-num">01</span>
+          <span class="skills-list-label">Programme Design &amp; Evaluation</span>
+        </button>
+        <button class="skills-list-item" data-skill="1" role="tab" aria-selected="false">
+          <span class="skills-list-num">02</span>
+          <span class="skills-list-label">Client &amp; Stakeholder Management</span>
+        </button>
+        <button class="skills-list-item" data-skill="2" role="tab" aria-selected="false">
+          <span class="skills-list-num">03</span>
+          <span class="skills-list-label">Training &amp; Capacity Building</span>
+        </button>
+        <button class="skills-list-item" data-skill="3" role="tab" aria-selected="false">
+          <span class="skills-list-num">04</span>
+          <span class="skills-list-label">Change Management &amp; Digital Adoption</span>
+        </button>
+        <button class="skills-list-item" data-skill="4" role="tab" aria-selected="false">
+          <span class="skills-list-num">05</span>
+          <span class="skills-list-label">Research &amp; Data Analysis</span>
+        </button>
+        <button class="skills-list-item" data-skill="5" role="tab" aria-selected="false">
+          <span class="skills-list-num">06</span>
+          <span class="skills-list-label">Cross-Sector Communication</span>
+        </button>
+      </div>
+      <div class="skills-detail">
+        <div class="skills-detail-panel active" data-skill="0">
+          <h3>Programme Design &amp; Evaluation</h3>
+          <p>I design programmes end to end and evaluate how well they work. Across government, non-profit and finance, I've built and evaluated high-impact programmes- including growing an online impact investment academy and piloting community programmes for adults with learning disabilities- using monitoring and evaluation to turn outcomes into evidence stakeholders can act on.</p>
+        </div>
+        <div class="skills-detail-panel" data-skill="1">
+          <h3>Client &amp; Stakeholder Management</h3>
+          <p>Client-facing roles in technology and financial services have given me experience acting as the link between clients, technical teams and leadership. This means operational needs and feedback consistently translate into product improvement and decision-making.</p>
+        </div>
+        <div class="skills-detail-panel" data-skill="2">
+          <h3>Training &amp; Capacity Building</h3>
+          <p>Across several roles, I've been responsible for training and onboarding people onto new systems and processes. This includes delivering a digital inclusion programme for a London local council while managing a team of 7+ volunteers.</p>
+        </div>
+        <div class="skills-detail-panel" data-skill="3">
+          <h3>Change Management &amp; Digital Adoption</h3>
+          <p>Product and client-facing roles have given me hands-on experience driving digital adoption: redesigning interface content and workflows, and building self-service resources and documentation that make new software and processes easier to adopt. Through better onboarding, training and usability practices, my work has resulted in adoption rates increasing by nearly 70%.</p>
+        </div>
+        <div class="skills-detail-panel" data-skill="4">
+          <h3>Research &amp; Data Analysis</h3>
+          <p>My academic background gave me strong quantitative and qualitative research skills, which I've applied across policy, finance and community settings to produce stakeholder reports, concept notes, policy briefs and thought leadership.</p>
+        </div>
+        <div class="skills-detail-panel" data-skill="5">
+          <h3>Cross-Sector Communication</h3>
+          <p>Marketing roles across finance and social impact have given me experience writing and presenting for a wide range of audiences, from investors and policymakers to healthcare staff and residents. I have produced newsletters, videos, campaigns and end-of-year reports that increased audience engagement and made complex financial and policy information accessible to non-specialist audiences.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tools-block reveal">
+      <h3>Technologies</h3>
+      <div class="tag-row">
+        <span class="tag">SaaS Platforms</span>
+        <span class="tag">Google Workspace</span>
+        <span class="tag">Microsoft Office 365</span>
+        <span class="tag">Zoom</span>
+        <span class="tag">Slack</span>
+        <span class="tag">Salesforce CRM</span>
+        <span class="tag">Mailchimp</span>
+        <span class="tag">Canva</span>
+        <span class="tag">WordPress</span>
+        <span class="tag">Adobe Photoshop</span>
+        <span class="tag">SIRSI Database Management</span>
+        <span class="tag">Social Media</span>
+        <span class="tag">R Programming</span>
+        <span class="tag">QGIS</span>
+        <span class="tag">Rise 360</span>
+        <span class="tag">Claude</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Microsoft Copilot</span>
+      </div>
+    </div>
+
+    <div class="tools-block reveal">
+      <h3>Courses &amp; Certifications</h3>
+      <div class="course-list">
+        <div class="course-item">
+          <span class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"></path></svg></span>
+          <span class="course-title">NATO and the Future of Global Security</span>
+          <span class="course-provider">One Young World</span>
+          <a class="course-link" href="https://www.credly.com/earner/earned/badge/ef1781fe-3c75-4873-b3a7-7fa081e23d3c" target="_blank" rel="noopener">View credential ↗</a>
+        </div>
+        <div class="course-item">
+          <span class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"></path></svg></span>
+          <span class="course-title">Microlearning Instructional Design (Certification)</span>
+          <span class="course-provider">Gnowbe</span>
+          <a class="course-link" href="https://be.gnowbe.com/ntmy4" target="_blank" rel="noopener">View credential ↗</a>
+        </div>
+        <div class="course-item">
+          <span class="course-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"></path></svg></span>
+          <span class="course-title">Mobilizing Finance for the SDGs</span>
+          <span class="course-provider">Impact Investment Exchange (IIX)</span>
+          <a class="course-link" href="https://www.credly.com/badges/2946603d-a5f9-4bae-8a9f-92c6b2aea9bf?source=linked_in_profile" target="_blank" rel="noopener">View credential ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tools-block reveal">
+      <h3>Languages</h3>
+      <div class="tag-row">
+        <span class="tag">English</span>
+        <span class="tag">Dutch</span>
+        <span class="tag">Spanish</span>
+        <span class="tag">Tamil</span>
+        <span class="tag">Hindi</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="highlights">
+  <div class="container">
+    <div class="highlights-head reveal">
+      <span class="eyebrow">Projects &amp; Highlights</span>
+    </div>
+
+    <div class="highlight-grid">
+      <div class="highlight-card">
+        <div class="highlight-thumb"><img src="highlight-nurse-onboarding.jpg" alt="Healthcare onboarding platform" loading="lazy"></div>
+        <div class="highlight-body">
+          <span class="tag-label">AcuiZen Technologies</span>
+          <h3>Cut Nurse Onboarding Costs by 40%</h3>
+          <button class="highlight-toggle" aria-expanded="false"><span class="highlight-icon">+</span> Read more</button>
+          <div class="highlight-panel">
+            <p>At AcuiZen, I trained the team building onboarding content for a new hospital client during COVID-19, helping bring 2,000+ nurses onto our SaaS platform and cutting onboarding costs by 40%.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-thumb"><img src="highlight-hackathon.jpg" alt="AcuiZen-KBA hackathon win" loading="lazy"></div>
+        <div class="highlight-body">
+          <span class="tag-label">AcuiZen Technologies</span>
+          <h3>Won First Prize at Learning Innovation Hackathon</h3>
+          <button class="highlight-toggle" aria-expanded="false"><span class="highlight-icon">+</span> Read more</button>
+          <div class="highlight-panel">
+            <p>At AcuiZen, I was part of the AcuiZen-KBA team that won First Prize at the Mobile Learning Innovation Day, hosted by iN.LAB (an initiative of SkillsFuture Singapore), for a digital training solution that improved safety standards across the maritime industry.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-thumb"><img src="highlight-digital-inclusion.jpg" alt="Digital inclusion programme" loading="lazy"></div>
+        <div class="highlight-body">
+          <span class="tag-label">London Borough of Tower Hamlets</span>
+          <h3>Led a Borough-Wide Digital Inclusion Initiative</h3>
+          <button class="highlight-toggle" aria-expanded="false"><span class="highlight-icon">+</span> Read more</button>
+          <div class="highlight-panel">
+            <p>At the London Borough of Tower Hamlets, I designed and managed a borough-wide digital inclusion programme, sitting in on council-level discussions about how to improve service delivery for digitally excluded residents. The flagship of that work was Get Online, a weekly digital skills programme that increased in participation by 200% in 18 months.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-thumb"><img src="highlight-drpc.jpg" alt="Development Research and Projects Center" loading="lazy"></div>
+        <div class="highlight-body">
+          <a class="tag-label" href="https://drpcngr.org/" target="_blank" rel="noopener">Development Research and Projects Center</a>
+          <h3>Built an Innovation Toolkit</h3>
+          <button class="highlight-toggle" aria-expanded="false"><span class="highlight-icon">+</span> Read more</button>
+          <div class="highlight-panel">
+            <p>I advised dRPC, a Nigerian NGO focused on capacity building, on how to identify and support agents of innovation. Working as part of a three-person consultancy team, we ran a full development project cycle, including problem, stakeholder and force field analysis. We finally delivered a training programme and toolkit for identifying these 'champions' within Nigeria's Public Health Administration, presenting our recommendations directly to the organisation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-thumb"><img src="highlight-trustee.jpg" alt="Trustee, Shadwell Community Project" loading="lazy"></div>
+        <div class="highlight-body">
+          <span class="tag-label">Shadwell Community Project</span>
+          <h3>Trustee of a Children's Charity</h3>
+          <button class="highlight-toggle" aria-expanded="false"><span class="highlight-icon">+</span> Read more</button>
+          <div class="highlight-panel">
+            <p>As a trustee of Shadwell Community Project, a child-led adventure playground and community space in East London, I sat on the board responsible for its governance, financial oversight and strategic direction. That included scrutinising budgets, contributing to fundraising strategy, and treating safeguarding as a standing priority.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-thumb"><img src="highlight-bookclub.jpg" alt="Book club pilot" loading="lazy"></div>
+        <div class="highlight-body">
+          <span class="tag-label">London Borough of Tower Hamlets</span>
+          <h3>Launched Inclusive Book Club Pilot</h3>
+          <button class="highlight-toggle" aria-expanded="false"><span class="highlight-icon">+</span> Read more</button>
+          <div class="highlight-panel">
+            <p>I launched an eight-week book club pilot for adults with learning disabilities at a London council library, in partnership with Books Beyond Words and Tower Project. I then wrote an independent evaluation report on the pilot, with recommendations that fed directly into the council's approach to more inclusive services.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-thumb"><img src="highlight-gbv.jpg" alt="Gender-based violence awareness campaign" loading="lazy"></div>
+        <div class="highlight-body">
+          <span class="tag-label">London Borough of Tower Hamlets</span>
+          <h3>Chaired a Gender-Based Violence Awareness Committee</h3>
+          <button class="highlight-toggle" aria-expanded="false"><span class="highlight-icon">+</span> Read more</button>
+          <div class="highlight-panel">
+            <p>I chaired a special committee on a borough-wide gender-based violence awareness campaign, bringing together residents, charities and council stakeholders around a shared response. I founded a women's community group to create an ongoing channel for resident engagement, and built cross-sector partnerships with organisations working with women to strengthen support for vulnerable residents.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-thumb"><img src="highlight-wlb.jpg" alt="Women's Livelihood Bond 4 Climate" loading="lazy"></div>
+        <div class="highlight-body">
+          <span class="tag-label">Impact Investment Exchange</span>
+          <h3>Women's Livelihood Bond™ 4 Climate Campaign</h3>
+          <button class="highlight-toggle" aria-expanded="false"><span class="highlight-icon">+</span> Read more</button>
+          <div class="highlight-panel">
+            <p>At Impact Investment Exchange, I worked on stakeholder communications and a digital engagement campaign for the Women's Livelihood Bond™ 4 Climate, a $30 million sustainable finance instrument backed by governments and global investors. I led content production, including social media, videos, newsletters, press releases and visual assets, increasing engagement by 45%.</p>
+            <p>More on the bond is here: <a class="inline-link" href="https://wlb.iixglobal.com/wlb-4/" target="_blank" rel="noopener">wlb.iixglobal.com/wlb-4</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-thumb"><img src="highlight-walk.jpg" alt="Charity walk for Doctors Without Borders" loading="lazy"></div>
+        <div class="highlight-body">
+          <span class="tag-label">Charity Walk</span>
+          <h3>100km for Médecins Sans Frontières</h3>
+          <button class="highlight-toggle" aria-expanded="false"><span class="highlight-icon">+</span> Read more</button>
+          <div class="highlight-panel">
+            <p>I completed a continuous 29-hour, 100km walk from London to Brighton, raising £580 for Médecins Sans Frontières (Doctors Without Borders).</p>
+            <p>See the campaign here: <a class="inline-link" href="https://www.gofundme.com/f/100-km-for-msf" target="_blank" rel="noopener">gofundme.com/f/100-km-for-msf</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-thumb"><img src="highlight-ing.jpg" alt="ING Benelux sustainability campaign" loading="lazy"></div>
+        <div class="highlight-body">
+          <span class="tag-label">ING's Student Advisory Team</span>
+          <h3>Benelux Sustainability Campaign for Microbusinesses</h3>
+          <button class="highlight-toggle" aria-expanded="false"><span class="highlight-icon">+</span> Read more</button>
+          <div class="highlight-panel">
+            <p>As part of ING's Sustainability Advisory Team, I designed and evaluated an in-app sustainability campaign for 500,000+ microbusinesses across the Benelux region, tracking engagement with sector-specific tips to shape recommendations I presented to over 40 stakeholders at ING.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-thumb"><img src="highlight-roosevelt.jpg" alt="Roosevelt Network" loading="lazy"></div>
+        <div class="highlight-body">
+          <span class="tag-label">Roosevelt Network</span>
+          <h3>Co-Authored a Research Publication</h3>
+          <button class="highlight-toggle" aria-expanded="false"><span class="highlight-icon">+</span> Read more</button>
+          <div class="highlight-panel">
+            <p>I helped establish the first European chapter of the Roosevelt Institute, a liberal policy think tank. For the chapter's first publication themed 'Crisis Management', I co-authored an article analysing the effectiveness of COVID-19 lockdown measures across three countries.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <span class="eyebrow">Get in Touch</span>
+    <h2>If you're hiring for a role that needs interdisciplinary thinking, I'd love to hear from you.</h2>
+    <div class="contact-ctas">
+      <a href="mailto:anisha2221b@gmail.com" class="btn btn-primary">Email me →</a>
+      <a href="https://www.linkedin.com/in/anishachandrasekar/" class="btn btn-ghost" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a href="Anisha-Chandrasekar-CV.pdf" class="btn btn-ghost" download>Download CV</a>
+    </div>
+    <div class="contact-details">
+      <div class="detail-row"><span>Email</span><span>anisha2221b@gmail.com</span></div>
+      <div class="detail-row"><span>Work Authorisation</span><span>Orientation Year Visa</span></div>
+      <div class="detail-row"><span>Relocating to</span><span>The Netherlands</span></div>
+      <div class="detail-row wide"><span>Seeking Roles In</span><span>Technology &amp; Digital Transformation, Social Impact &amp; Innovation, Financial Services, Pensions &amp; Retirement, Sustainability, ESG &amp; Impact Investing, Strategy, Innovation &amp; Social Impact Consulting, Healthcare Innovation &amp; HealthTech, Public Policy &amp; Applied Research, Programme Management</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Designed and Built by Anisha Chandrasekar</p>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = document.querySelectorAll('nav a[data-nav]');
+  const activeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(a => a.classList.remove('active'));
+        const match = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+        if (match) match.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  sections.forEach(s => activeObserver.observe(s));
+
+  function initAccordion(toggleSelector, cardSelector, panelSelector){
+    document.querySelectorAll(toggleSelector).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest(cardSelector);
+        const panel = card.querySelector(panelSelector);
+        const isOpen = card.classList.contains('open');
+        if (isOpen) {
+          card.classList.remove('open');
+          panel.style.maxHeight = null;
+          btn.setAttribute('aria-expanded', 'false');
+        } else {
+          card.classList.add('open');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+  initAccordion('.highlight-toggle', '.highlight-card', '.highlight-panel');
+
+  const skillItems = document.querySelectorAll('.skills-list-item');
+  const skillPanels = document.querySelectorAll('.skills-detail-panel');
+  skillItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const target = item.dataset.skill;
+      skillItems.forEach(i => {
+        i.classList.toggle('active', i === item);
+        i.setAttribute('aria-selected', i === item ? 'true' : 'false');
+      });
+      skillPanels.forEach(p => p.classList.toggle('active', p.dataset.skill === target));
+    });
+  });
+
+  document.querySelectorAll('.highlight-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.lastChild.textContent = expanded ? ' Read less' : ' Read more';
+    });
+  });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>
